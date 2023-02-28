@@ -1,3 +1,5 @@
+import math
+
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.label import Label
@@ -11,17 +13,29 @@ class InputScreen(Screen):
         super().__init__(**kwargs)
         self.layout = BoxLayout(orientation='vertical')
 
-        self.voltage_label = Label(text='Enter voltage:')
-        self.layout.add_widget(self.voltage_label)
+        self.t1 = Label(text='time1:')
+        self.layout.add_widget(self.t1)
 
-        self.voltage_input = TextInput()
-        self.layout.add_widget(self.voltage_input)
+        self.ti1 = TextInput()
+        self.layout.add_widget(self.ti1)
 
-        self.current_label = Label(text='Enter current:')
-        self.layout.add_widget(self.current_label)
+        self.t2 = Label(text='time1:')
+        self.layout.add_widget(self.t2)
 
-        self.current_input = TextInput()
-        self.layout.add_widget(self.current_input)
+        self.ti2 = TextInput()
+        self.layout.add_widget(self.ti2)
+
+        self.t3 = Label(text='time1:')
+        self.layout.add_widget(self.t3)
+
+        self.ti3 = TextInput()
+        self.layout.add_widget(self.ti3)
+
+        self.h = Label(text='h:')
+        self.layout.add_widget(self.h)
+
+        self.hi = TextInput()
+        self.layout.add_widget(self.hi)
 
         self.calculate_button = Button(text='Calculate resistance', on_press=self.calculate_resistance)
         self.layout.add_widget(self.calculate_button)
@@ -29,10 +43,14 @@ class InputScreen(Screen):
         self.add_widget(self.layout)
 
     def calculate_resistance(self, *args):
-        voltage = float(self.voltage_input.text)
-        current = float(self.current_input.text)
-        resistance = voltage / current
-        result_screen = ResultScreen(resistance=resistance)
+        t1 = float(self.ti1.text)
+        t2 = float(self.ti2.text)
+        t3 = float(self.ti3.text)
+        h = float(self.hi.text)
+
+        t = (t1 + t2 + t3) / 3
+        k = math.sqrt((math.pow(t * 2 * 3.14, 2)/9.81 * h) - math.pow(h, 2) )
+        result_screen = ResultScreen(resistance=k)
         self.manager.switch_to(result_screen)
 
 
