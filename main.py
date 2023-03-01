@@ -19,7 +19,7 @@ class InputScreen(Screen):
         self.ti1 = TextInput()
         self.layout.add_widget(self.ti1)
 
-        self.t2 = Label(text='time1:')
+        self.t2 = Label(text='time:')
         self.layout.add_widget(self.t2)
 
         self.ti2 = TextInput()
