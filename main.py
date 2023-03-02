@@ -13,19 +13,19 @@ class InputScreen(Screen):
         super().__init__(**kwargs)
         self.layout = BoxLayout(orientation='vertical')
 
-        self.t1 = Label(text='time1:')
+        self.t1 = Label(text='time1:(sec)')
         self.layout.add_widget(self.t1)
 
         self.ti1 = TextInput()
         self.layout.add_widget(self.ti1)
 
-        self.t2 = Label(text='time:')
+        self.t2 = Label(text='time2(sec):')
         self.layout.add_widget(self.t2)
 
         self.ti2 = TextInput()
         self.layout.add_widget(self.ti2)
 
-        self.t3 = Label(text='time1:')
+        self.t3 = Label(text='time3:(sec)')
         self.layout.add_widget(self.t3)
 
         self.ti3 = TextInput()
